@@ -2,7 +2,26 @@
 	<section id="login">
 		<div class="row">
 			<h1 class="section-title">Signup For KirkZay</h1>
-			<div class="col-md-6 col-md-offset-3">
+
+			<!-- checks username and password, if incorrect throws an error -->
+
+				<?php if (isset($_SESSION['ERROR_MESSAGE'])) : ?>
+	                <div class="alert alert-danger">
+	                    <p class="error"><?= $_SESSION['ERROR_MESSAGE']; ?></p>
+	                </div>
+	              <?php unset($_SESSION['ERROR_MESSAGE']); ?>
+	            <?php endif; ?>
+
+	        <!-- checking to see if user is already signed in, if so success -->
+	            <?php if (isset($_SESSION['SUCCESS_MESSAGE'])) : ?>
+	                <div class="alert alert-success">
+	                    <p class="success"><?= $_SESSION['SUCCESS_MESSAGE']; ?></p>
+	                </div>
+	              <?php unset($_SESSION['SUCCESS_MESSAGE']); ?>
+	            <?php endif; ?>
+
+	        <div class="col-md-6 col-md-offset-3">
+
 				<form method="POST" action="" data-validation data-required-message="This field is required">
 					<div class="form-group">
 					    <input type="text" class="form-control" id="name" name="name" placeholder="Full Name" data-required>
@@ -21,7 +40,7 @@
 							<button type="submit" class="btn btn-primary">Signup</button>
 						</div>
 						<div class="col-sm-6 text-right">
-							<a href="/login" class="btn btn-success">Go To Login</a>
+							<a href='/views/users/signup.php' class="btn btn-success">Go To Login</a>
 						</div>
 					</div>
 

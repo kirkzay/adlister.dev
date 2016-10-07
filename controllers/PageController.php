@@ -19,33 +19,58 @@ function pageController()
     switch ($request) {
         case '/':
             $main_view = '../views/home.php';
+            $data['listing'] = Listing::featuredItems();
             break;
         case '/ads/create':
+            if($_POST) {
+            listingSave();
+            }
             $main_view = '../views/ads/create.php';
             break;
         case '/ads/edit':
             $main_view = '../views/ads/edit.php';
+            if($_POST) {
+            listingSave();
+            }
             break;
         case '/ads':
             $main_view = '../views/ads/index.php';
+            $data['listing'] = Listing::all();
             break;
         case '/ads/show':
+            $data['listing'] = Listing::find($itemId);
             $main_view = '../views/ads/show.php';
             break;
         case '/account':
+            redirectIfNotLoggedIn();
+            checkIfUserIdGiven();
+            $data['user'] = User::find(Input::get('id'));
+            $data['listing'] = $data['user']->listing();
             $main_view = '../views/users/account.php';
             break;
+            break;
         case '/account/edit':
+                if (Auth::id() == Input::get('id')) {
             $main_view = '../views/users/edit.php';
+            redirectIfNotLoggedIn();
+            checkIfUserIdGiven();
+            editAccount();
+            $data['user'] = User::find(Input::get('id'));
+            } else {
+              header("Location: /account/");
+            }
             break;
         case '/account/login':
+            redirectIfLoggedIn();
+            login();
             $main_view = '../views/users/login.php';
             break;
         case '/account/signup':
             $main_view = '../views/users/signup.php';
+            saveUser();
             break;
         default:    // displays 404 if route not specified above
-        $main_view = '../views/404.php';
+            $main_view = '../views/404.php';
         break;
     }
     $data['main_view'] = $main_view;

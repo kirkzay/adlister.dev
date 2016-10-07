@@ -2,10 +2,8 @@
 	<section id="login">
 		<div class="row">
 			<h1 class="section-title">Edit Account</h1>
-			<div class="col-md-6 col-md-offset-3">
 
-			
-
+			<!-- checks username and password, if incorrect throws an error -->
 
 				<?php if (isset($_SESSION['ERROR_MESSAGE'])) : ?>
 	                <div class="alert alert-danger">
@@ -13,6 +11,8 @@
 	                </div>
 	              <?php unset($_SESSION['ERROR_MESSAGE']); ?>
 	            <?php endif; ?>
+
+	        <!-- checking to see if user is already signed in, if so success -->
 	            <?php if (isset($_SESSION['SUCCESS_MESSAGE'])) : ?>
 	                <div class="alert alert-success">
 	                    <p class="success"><?= $_SESSION['SUCCESS_MESSAGE']; ?></p>
@@ -20,7 +20,7 @@
 	              <?php unset($_SESSION['SUCCESS_MESSAGE']); ?>
 	            <?php endif; ?>
 
-
+	        <div class="col-md-6 col-md-offset-3">
 
 
 				<form method="POST" action="" data-validation data-required-message="This field is required">
