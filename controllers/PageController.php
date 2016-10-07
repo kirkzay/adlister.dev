@@ -15,6 +15,13 @@ function pageController()
     {
         $request = $_SERVER['REQUEST_URI'];
     }
+
+    
+
+
+
+
+    $item_id = $_GET['id'];
     // switch that will run functions and setup variables dependent on what route was accessed
     switch ($request) {
         case '/':
@@ -23,7 +30,7 @@ function pageController()
             break;
         case '/ads/create':
             if($_POST) {
-            listingSave();
+            ListingSave();
             }
             $main_view = '../views/ads/create.php';
             break;
@@ -38,7 +45,7 @@ function pageController()
             $data['listing'] = Listing::all();
             break;
         case '/ads/show':
-            $data['listing'] = Listing::find($itemId);
+            $data['listing'] = Listing::findByItem($item_id);
             $main_view = '../views/ads/show.php';
             break;
         case '/account':

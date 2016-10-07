@@ -3,7 +3,7 @@
 	<div class="col-md-5">
 		<div class="row">
 
-			<img class="img-thumbnail img-responsive" alt="<?= $items->item_name ?>" src="<?= $listing->item_image ?>">
+			<img class="img-thumbnail img-responsive" alt="<?= $listing->item_name ?>" src="<?= $listing->item_image ?>">
 
 		</div>
 	</div>
@@ -19,7 +19,7 @@
 			</div>
 			<div class="col-md-6">
 				<h3>Posted By:</h3>
-				<h4><a href="/account/?id=<?= $listing->user()->id ?>"><?= $listing->user()->username ?></a></h4>
+				<h4><?= $listing->user()->id ?>"><?= $listing->user()->username ?></h4>
 			</div>
 		</div>
 		<hr>
@@ -28,9 +28,6 @@
 				<h3>Description</h3>
 				<p><?= $listing->item_description ?></p>
 			</div>
-
-
-
 		</div>
 	</div>
 </div>
