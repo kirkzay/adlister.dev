@@ -15,11 +15,6 @@
                 </div>
 
 
-
-
-
-
-
 				<form method="POST" action="" data-validation data-required-message="This field is required">
 					<div class="form-group">
 					    <input type="text" class="form-control" id="name" name="name" placeholder="Change the Name of your Listing" data-required>

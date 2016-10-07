@@ -3,6 +3,7 @@
 		<div class="row">
 			<center><h1 class="section-title">Create Alisting!</h1></center>
 			<div class="col-md-6 col-md-offset-3">
+
 				<form method="POST" action="" data-validation data-required-message="This field is required" enctype="multipart/form-data">
 					<div class="form-group">
 					    <input type="text" class="form-control" id="name" name="name" placeholder="Name of listing" data-required>
@@ -27,5 +28,6 @@
 		</div>
 	</section>
 </div>
+
 
 
