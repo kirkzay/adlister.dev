@@ -70,6 +70,30 @@ class Listing extends Model {
      }
 
 
+  /////////////////////////////////////////
+
+    public static function findAllWithUserId($id)
+     {
+     	self::dbConnect();
+           //Create select statement using prepared statements
+     	$query = 'SELECT * FROM ' . static::$table . ' WHERE user_id = :id ORDER BY id DESC LIMIT 3';
+     	$stmt = self::$dbc->prepare($query);
+     	$stmt->bindValue(':id', intval($id), PDO::PARAM_INT);
+      ///once userlogin is done change $id to $this->$id
+     	$stmt->execute();
+           //Store the resultset in a variable named $result
+     	$result = $stmt->fetchAll(PDO::FETCH_ASSOC);
+           // The following code will set the attributes on the calling object based on the result variable's contents
+     	$instance = null;
+     	if ( $result )
+     	{
+     		$instance = new static;
+     		$instance->attributes = $result;
+     	}
+     	return $instance;
+     }
+
+
 }
 
 ?>

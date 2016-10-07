@@ -13,20 +13,13 @@
 		<strong>Email: </strong> <?= $user->email ?>
 		</p>
 
-
-
-
 		<?php if (Auth::id() != Input::get('id')): ?>
 		<a href="/account/edit/?id=<?= $user->id ?>" class="btn btn-primary hidden" >Edit Account</a>
 		<?php else: ?>
 		<a href="/account/edit/?id=<?= $user->id ?>" class="btn btn-primary" >Edit Account</a>
 		<?php endif; ?>
-
-
-
-
-
 	</div>
+
 	<div class="col-md-6">
 		<h3>Your listings</h3>
 	<?php foreach($listing->attributes as $key => $list) : ?>
@@ -37,11 +30,8 @@
 			<p>
 				<a href="/ads/show/?id=<?= $list['id']; ?>">See More</a>
 			</p>
-
-
-
-
 		<?php endforeach; ?>
+
 		<?php if (Auth::id() != Input::get('id')): ?>
 		<a href="/ads/create" class="btn btn-primary hidden">New Listing</a>
 		<?php else: ?>

@@ -18,7 +18,7 @@ function pageController()
 
 
 
-    $item_id = $_GET['id'];
+    // $item_id = $_GET['id'];
     // switch that will run functions and setup variables dependent on what route was accessed
     switch ($request) {
         case '/':
@@ -47,11 +47,10 @@ function pageController()
             break;
         case '/account':
             //redirectIfNotLoggedIn();
-            //checkIfUserIdGiven();
+            // checkIfUserIdGiven();
             $data['user'] = User::find(Input::get('id'));
             $data['listing'] = $data['user']->listing();
             $main_view = '../views/users/account.php';
-            break;
             break;
         case '/account/edit':
                 if (Auth::id() == Input::get('id')) {
