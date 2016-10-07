@@ -47,7 +47,7 @@ class Listing extends Model {
     // public function findItemsByUser($user_id)
     // {
         // do query to find all items with the user_id
-    //}
+    // }
 
 
 }
