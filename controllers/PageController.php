@@ -16,9 +16,6 @@ function pageController()
         $request = $_SERVER['REQUEST_URI'];
     }
 
-    
-
-
 
 
     $item_id = $_GET['id'];
@@ -30,14 +27,14 @@ function pageController()
             break;
         case '/ads/create':
             if($_POST) {
-            ListingSave();
+            Save();
             }
             $main_view = '../views/ads/create.php';
             break;
         case '/ads/edit':
             $main_view = '../views/ads/edit.php';
             if($_POST) {
-            listingSave();
+            Save();
             }
             break;
         case '/ads':
@@ -49,8 +46,8 @@ function pageController()
             $main_view = '../views/ads/show.php';
             break;
         case '/account':
-            redirectIfNotLoggedIn();
-            checkIfUserIdGiven();
+            //redirectIfNotLoggedIn();
+            //checkIfUserIdGiven();
             $data['user'] = User::find(Input::get('id'));
             $data['listing'] = $data['user']->listing();
             $main_view = '../views/users/account.php';
@@ -59,8 +56,8 @@ function pageController()
         case '/account/edit':
                 if (Auth::id() == Input::get('id')) {
             $main_view = '../views/users/edit.php';
-            redirectIfNotLoggedIn();
-            checkIfUserIdGiven();
+            //redirectIfNotLoggedIn();
+            //checkIfUserIdGiven();
             editAccount();
             $data['user'] = User::find(Input::get('id'));
             } else {
@@ -68,7 +65,7 @@ function pageController()
             }
             break;
         case '/account/login':
-            redirectIfLoggedIn();
+            //redirectIfLoggedIn();
             login();
             $main_view = '../views/users/login.php';
             break;
