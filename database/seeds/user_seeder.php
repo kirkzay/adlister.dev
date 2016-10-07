@@ -3,6 +3,13 @@
 require_once __DIR__ . '/../../models/User.php';
 require_once __DIR__ . '/../../models/Listing.php';
 
+$user = new User;
+$user->name = 'Sparky';
+$user->email = 'sparky@fansofbilly.com';
+$user->username = "Spark_afterDark";
+$user->password = 'CodeupRocks';
+$user->save();
+
 
 $user = new User;
 $user->name = 'Finn Mertens';
@@ -89,7 +96,7 @@ $listing->item_description = 'Hot DC Comics for Sale!  Green Arrow: The Longbow 
 $listing->item_price = '250.00';
 $listing->item_location_city ='San Antonio';
 $listing->item_location_state ='TX';
-$listing->item_image = 'https://images.craigslist.org/01717_ijhwzfi4zwy_50x50c.jpg';
+$listing->item_image = 'http://media.dcentertainment.com/sites/default/files/styles/covers192x291/public/comic-covers/2016/10/JLCOVER006_color_57effc10400ef6.38813730.jpg?itok=FhRQq9gQ';
 $listing->user_id = 1;
 $listing->save();
 
