@@ -68,7 +68,7 @@ function pageController()
             break;
         case '/account/signup':
             $main_view = '../views/users/signup.php';
-            saveUser();
+            // saveUser();
             break;
         default:    // displays 404 if route not specified above
             $main_view = '../views/404.php';
