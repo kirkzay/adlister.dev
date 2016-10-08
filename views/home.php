@@ -24,9 +24,9 @@
         <hr>
         <div class="row">
             <?php foreach ($listing->attributes as $listing): ?>
-                
+
                 <div class="col-xs-4">
-                    <a href="/ads/show/?id=<?= $listing['id'] ?>"></a>
+                    <a href="/ads/show/?id=<?= $listing['id'] ?>"><img class="img-thumbnail img-responsive featured-image" alt="<?= $listing['item_name']; ?>" src="<?= $listing['item_image']; ?>"></a>
                     <br>
                     <h4><?= $listing['item_name']; ?></h4>
                     <strong>$<?= $listing['item_price']; ?></strong>

@@ -49,6 +49,12 @@ class User extends Model {
     }
 
 
+    public function listing()
+    {
+    return Listing::findAllWithUserId($this->id);
+    }
+
+
 }
 
 ?>

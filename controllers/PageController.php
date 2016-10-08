@@ -25,7 +25,7 @@ function pageController()
             $data['listing'] = Listing::featuredItems();
             break;
         case '/ads/create':
-            
+
             $main_view = '../views/ads/create.php';
             break;
         case '/ads/edit':
@@ -44,11 +44,10 @@ function pageController()
             break;
         case '/account':
             //redirectIfNotLoggedIn();
-            //checkIfUserIdGiven();
+            // checkIfUserIdGiven();
             $data['user'] = User::find(Input::get('id'));
             $data['listing'] = $data['user']->listing();
             $main_view = '../views/users/account.php';
-            break;
             break;
         case '/account/edit':
                 if (Auth::id() == Input::get('id')) {
