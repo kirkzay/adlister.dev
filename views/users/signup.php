@@ -1,3 +1,26 @@
+<?php
+
+
+if(Input::get('name') != '' &&
+Input::get('email') != '' &&
+Input::get('username') != '' &&
+Input::get('password') != ''){
+
+$name = Input::get('name');
+$email = Input::get('email');
+$username = Input::get('username');
+$password = Input::get('password');
+
+$user = new User();
+$user->name = $name;
+$user->email = $email;
+$user->username = $username;
+$user->password = $password;
+$user->save();
+
+}
+?>
+
 <div class="container view">
 	<section id="login">
 		<div class="row">
