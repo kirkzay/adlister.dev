@@ -1,7 +1,7 @@
 <?php
 
 
-if(Input::get('item_name') != '' ){//&&
+if(Input::get('item_name') != '' &&
 Input::get('item_description') != '' &&
 Input::get('item_price') != '' &&
 Input::get('item_location_city') != '' &&
@@ -45,7 +45,7 @@ $listing->save();
 					    <input type="text" class="form-control" id="description" name="item_description" placeholder="Describe your listing" data-required>
 					</div>
 					<div class="form-group">
-					    <input type="text" class="form-control" id="price" name="item_price" placeholder="Price in decimal value" value="3.00" data-required>
+					    <input type="text" class="form-control" id="price" name="item_price" placeholder="Price in decimal" data-required>
 					</div>
 					<div class="form-group">
 					    <input type="text" class="form-control" id="price" name="item_location_city" placeholder="City Name" data-required>
