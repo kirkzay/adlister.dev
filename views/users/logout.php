@@ -30,7 +30,7 @@ function clearSession()
            
 
 
-        <div class="col-md-5 col-md-offset-5">
+        <div class="col-md-4 col-md-offset-4">
             <center><h3>Please Login to continue...</h3></center>
             
 
