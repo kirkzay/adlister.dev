@@ -1,3 +1,20 @@
+<?php 
+	$listing = new Listing;
+	$listing = $listing->findByListings($_REQUEST['search']);
+	if(isset($_REQUEST['item_name']) && isset($_REQUEST['item_description']) && isset($_REQUEST['item_price']) && isset($_REQUEST['item-location_city'])  && isset($_REQUEST['item_location_state'])  && isset($_REQUEST['item_image'])) {
+		$listing->item_name = Input::get('item_name');
+		$listing->item_desctiption = Input::get('item_desctiption');
+		$listing->item_price = Input::get('item_price');
+		$listing->item_location_city = Input::get('item_location_city');
+		$listing->item_location_state = Input::get('item_location_state');
+		$listing->item_image = Input::get('item_image');
+		$listing->user_id = $_SESSION['LOGGED_IN_ID'];
+		$listing->save();
+	}
+?>
+
+?>
+
 <div class="container view">
 	<section id="login">
 		<div class="row">
